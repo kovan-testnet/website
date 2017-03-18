@@ -1,0 +1,9 @@
+siteTitle="Some Website"
+linkPrefix = "/"
+docPages = [
+  "/docs/",
+  "/docs/getting-started/",
+  "/docs/how-to-run/",
+  "/docs/the-next-step/",
+  "/docs/conclusion/",
+]
