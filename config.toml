@@ -1,5 +1,5 @@
 siteTitle="Kovan Testnet"
-linkPrefix = "/"
+linkPrefix = "/website"
 [[menuItems]]
 name = "Proposal"
 link = "proposal"

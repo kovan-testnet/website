@@ -23,7 +23,7 @@
   "license": "MIT",
   "scripts": {
     "start": "gatsby develop",
-    "build": "rm -rf ./docs; gatsby build; mv ./public ./docs;",
+    "build": "rm -rf ./docs; gatsby build --prefix-links; mv ./public ./docs;",
     "build-css": "cd semantic/; gulp build; cd ../;",
     "watch-css": "cd semantic/; gulp watch; cd ../;"
   }
