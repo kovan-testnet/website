@@ -1,5 +1,5 @@
-# gatsby-starter-documentation
-Starter for building documentation site with GatsbyJS
+# Kovan Web
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-`gatsby new gatsby-documentation-site https://github.com/gatsbyjs/gatsby-starter-documentation`
+Work in progress
+
+https://github.com/kovan-testnet/website
