@@ -11,7 +11,7 @@ export default class Html extends Component {
 
     let css
     if (process.env.NODE_ENV === 'production') {
-      css = <link rel='stylesheet' type='text/css' href={`/styles.css?t=${BUILD_TIME}`} />
+      css = <link rel='stylesheet' type='text/css' href={prefixLink(`/styles.css?t=${BUILD_TIME}`)} />
     }
 
     return (
