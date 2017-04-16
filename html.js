@@ -27,7 +27,7 @@ export default class Html extends Component {
           {css}
         </head>
         <body>
-          <div id='react-mount' dangerouslySetInnerHTML={{ __html: this.props.body }} />
+          <div id='react-mount' dangerouslySetInnerHTML={{ __html: this.props.body }} style={{ minHeight: '100%' }} />
           <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
         </body>
       </html>

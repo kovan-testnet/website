@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>undefined | Kovan Testnet</title><link rel="stylesheet" type="text/css" href="/styles.css?t=1492359833659"/></head><body><div id="react-mount" style="min-height:100%;"><div data-reactroot="" data-reactid="1" data-react-checksum="1260758503"><div style="min-height:100vh;" class="dimmable" data-reactid="2"><div style="z-index:103;opacity:0.5;" class="ui simple dimmer" data-reactid="3"></div><div style="position:fixed;" class="ui small ui top visible sidebar menu" data-reactid="4"><a class="header item" href="/" data-reactid="5"><i aria-hidden="true" class="subway icon" data-reactid="6"></i><!-- react-text: 7 -->Kovan Testnet<!-- /react-text --></a><div class="right menu" data-reactid="8"><a class="item" data-reactid="9"><i aria-hidden="true" class="list layout icon" data-reactid="10"></i></a></div></div><div style="padding-top:38px;" data-reactid="11"><div class="ui padded grid" data-reactid="12"><div class="orange sixteen wide column" data-reactid="13"><div class="ui text container" data-reactid="14"><div class="ui hidden divider" data-reactid="15"></div><div data-reactid="16"><h1>Connecting to Kovan Testnet</h1>
+<p>Kovan requires the use of Parity’s PoA Protocol. Ensure <strong><a href="https://github.com/ethcore/parity">Parity</a> 1.5.7 or greater is installed</strong>. For Parity support, head to the Parity <a href="https://gitter.im/ethcore/parity">gitter channel</a>.</p>
+<p>After configuring, you probably want to acquire some Kovan Ether. To do so, follow the <a href="https://github.com/kovan-testnet/faucet">faucet guide</a>.</p>
+<p>⚠️  If you’re deploying, ensure the <code>gas</code> provided is somerhing less than Kovan’s block limit of <code>5000000</code>.</p>
+<h2>Non-Authorities (Regular Users)</h2>
+<p>Most users who want to interact with the Kovan chain simply need to run parity with the correct chain config:</p>
+<h3>OSX / Linux</h3>
+<p>Use <code>parity --chain=kovan</code></p>
+<h3>Windows</h3>
+<p>A set up guide video for windows has also been created: <a href="https://www.youtube.com/watch?v=dTjstkfOT8E">https://www.youtube.com/watch?v=dTjstkfOT8E</a></p>
+<h2>Authorities (Block Validators)</h2>
+<p>Additionally, authorities need to have their keystores and decryption keys set up:</p>
+<ul>
+<li><code>~/.local/share/io.parity.ethereum/keys/kovan/[keystore file].json</code></li>
+<li><code>~/[file containing keystore password]</code></li>
+</ul>
+<p>Then start parity with the following command:</p>
+<pre><code><span class="hljs-comment">parity</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">chain=kovan</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">force</span><span class="hljs-literal">-</span><span class="hljs-comment">sealing</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">engine</span><span class="hljs-literal">-</span><span class="hljs-comment">signer=</span><span class="hljs-title">[</span><span class="hljs-comment">authority</span> <span class="hljs-comment">address</span><span class="hljs-title">]</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">password=</span><span class="hljs-title">[</span><span class="hljs-comment">file</span> <span class="hljs-comment">containing</span> <span class="hljs-comment">keystore</span> <span class="hljs-comment">password</span><span class="hljs-title">]</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">auto</span><span class="hljs-literal">-</span><span class="hljs-comment">update=all</span>
+</code></pre>
+<p>You can enable transaction signing via RPC (without unlocking the account) by enabling the <code>personal</code> JSON-RPC api:</p>
+<pre><code>-<span class="ruby">-jsonrpc-apis web3,eth,net,parity,traces,rpc,personal
+</span></code></pre>
+<h3>Netstats</h3>
+<p>For Authorities, it’s advised to set up <a href="https://github.com/cubedro/eth-net-intelligence-api">netstats</a>, so your node status is visible on <a href="http://kovan-stats.parity.io/">http://kovan-stats.parity.io/</a>.
+For regular users, your node status dans be displayed on <a href="https://stats.kovan.network/">https://stats.kovan.network/</a>.</p>
+<pre><code><span class="hljs-attribute">git</span> clone https://github.com/cubedro/eth-net-intelligence-api;
+<span class="hljs-attribute">cd</span> eth-net-intelligence-api;
+<span class="hljs-attribute">npm</span> install;
+<span class="hljs-attribute">npm</span> install -g pm2;
+</code></pre>
+<p>Edit the config file <code>eth-net-intelligence-api/app.json</code>, regular users must set <code>&quot;WS_SERVER&quot;: &quot;wss://stats.kovan.network&quot;</code> instead:</p>
+<pre><code>[
+  {
+    <span class="hljs-attr">"name"</span>              : <span class="hljs-string">"kovan-netstats"</span>,
+    <span class="hljs-attr">"script"</span>            : <span class="hljs-string">"app.js"</span>,
+    <span class="hljs-attr">"log_date_format"</span>   : <span class="hljs-string">"YYYY-MM-DD HH:mm Z"</span>,
+    <span class="hljs-attr">"merge_logs"</span>        : <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"watch"</span>             : <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"max_restarts"</span>      : <span class="hljs-number">10</span>,
+    <span class="hljs-attr">"exec_interpreter"</span>  : <span class="hljs-string">"node"</span>,
+    <span class="hljs-attr">"exec_mode"</span>         : <span class="hljs-string">"fork_mode"</span>,
+    <span class="hljs-attr">"env"</span>:
+    {
+      <span class="hljs-attr">"NODE_ENV"</span>        : <span class="hljs-string">"production"</span>,
+      <span class="hljs-attr">"INSTANCE_NAME"</span>   : <span class="hljs-string">"[company name] Kovan Authority Node #0"</span>,
+      <span class="hljs-attr">"CONTACT_DETAILS"</span> : <span class="hljs-string">"[admin email]"</span>,
+      <span class="hljs-attr">"WS_SERVER"</span>       : <span class="hljs-string">"wss://kovan-stats.parity.io"</span>,
+      <span class="hljs-attr">"WS_SECRET"</span>       : <span class="hljs-string">"[ask in the gitter channel]"</span>,
+      <span class="hljs-attr">"VERBOSITY"</span>       : <span class="hljs-number">2</span>
+    }
+  }
+]
+</code></pre>
+<p>Then start netstats:</p>
+<pre><code>pm2 <span class="hljs-keyword">start</span> app.json
+pm2 <span class="hljs-keyword">startup</span>
+pm2 <span class="hljs-keyword">save</span>
+</code></pre>
+</div><div class="ui hidden divider" data-reactid="17"></div></div></div></div><div style="margin-top:0px;" class="ui grid" data-reactid="18"><div class="grey sixteen wide column" data-reactid="19"><div class="ui padded grid" data-reactid="20"><div class="eight wide column" data-reactid="21">I am a footer</div><div class="right aligned eight wide column" data-reactid="22">I am a footer</div></div></div></div></div></div></div></div><script src="/bundle.js?t=1492359833659"></script></body></html>
