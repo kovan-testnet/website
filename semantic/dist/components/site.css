@@ -13,7 +13,6 @@
              Page
 *******************************/
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
 html,
 body {
   height: 100%;
@@ -26,8 +25,8 @@ body {
   padding: 0px;
   overflow-x: hidden;
   min-width: 320px;
-  background: #FFFFFF;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background: #EFEFEF;
+  font-family: 'Roboto Light', 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
@@ -44,7 +43,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Light', 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem -  0.14285714em ) 0em 1rem;
   font-weight: bold;
@@ -158,3 +157,53 @@ input::selection {
          Site Overrides
 *******************************/
 
+a:not(.ui):not(.item) {
+  color: inherit;
+  opacity: 0.8;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+a:not(.ui):not(.item):hover {
+  color: inherit;
+  opacity: 1;
+}
+body .ui.inverted.list .item a:not(.ui):hover {
+  color: inherit !important;
+}
+.ui.padded.grid > .column:not(.row) {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.ui.padded.grid > .column:not(.row) > .header {
+  padding-bottom: 2rem;
+}
+pre,
+code {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.3em;
+  border-radius: 2px;
+}
+pre > code,
+code > code {
+  border-radius: none;
+  border: none;
+  padding: none;
+  background: none;
+}
+.masthead {
+  background-position: center center;
+  background-size: cover;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+  text-shadow: 0px 1px 3px black;
+  text-align: center;
+}
+.masthead .dark-area {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  box-shadow: inset 0px 0px 10px black;
+  margin: 2rem 0rem;
+}

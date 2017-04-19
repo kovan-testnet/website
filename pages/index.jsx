@@ -1,49 +1,44 @@
 import React, { Component } from 'react'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Container } from 'semantic-ui-react'
 
-import Masthead from '../components/masthead'
-import AdvantagesGrid from '../components/advantages_grid'
+import Masthead from '../components/index/masthead'
+import AdvantagesGrid from '../components/index/advantages'
+import GettingStarted from '../components/index/getting_started'
+import QuickLinks from '../components/index/quick_links'
+import Roadmap from '../components/index/roadmap'
+import Authorities from '../components/index/authorities'
+
+import mastheadBg from '../assets/masthead_bg.jpg'
 
 export default class IndexTemplate extends Component {
   render () {
     return (
       <Grid padded>
-        <Masthead />
-        <AdvantagesGrid />
-        <Grid.Column width={16}>
-          <Grid stackable columns={2}>
-            <Grid.Column color='green'>
-              <h1>Connect</h1>
-              <p>Connect info (infura)</p>
-            </Grid.Column>
-            <Grid.Column color='yellow'>
-              <h1>Get Ether</h1>
-              <p>Faucet Info</p>
-            </Grid.Column>
-          </Grid>
+        <Grid.Column width={16} color='orange' className='masthead' style={{ backgroundImage: `url(${mastheadBg})` }}>
+          <Masthead />
+        </Grid.Column>
+        <Grid.Column width={16} color='blue'>
+          <Container>
+            <AdvantagesGrid />
+          </Container>
         </Grid.Column>
         <Grid.Column width={16}>
-          <Grid stackable columns={4}>
-            <Grid.Column color='pink'>
-              <h1>Explorer</h1>
-              <p>Tests</p>
-            </Grid.Column>
-            <Grid.Column color='teal'>
-              <h1>Netstats</h1>
-              <p>Link to etherscan</p>
-            </Grid.Column>
-            <Grid.Column color='orange'>
-              <h1>Support</h1>
-              <p>Gitter</p>
-            </Grid.Column>
-            <Grid.Column color='violet'>
-              <h1>KIPs</h1>
-              <p>Link to kips</p>
-            </Grid.Column>
-          </Grid>
+          <Container>
+            <QuickLinks />
+          </Container>
         </Grid.Column>
-        <Grid.Column width={16} color='purple'>
-          <h1>Roadmap</h1>
+        <Grid.Column width={16} color='teal'>
+          <Container>
+            <GettingStarted />
+          </Container>
+        </Grid.Column>
+        <Grid.Column width={16}>
+          <Container>
+            <Grid stackable columns={2}>
+              <Roadmap />
+              <Authorities />
+            </Grid>
+          </Container>
         </Grid.Column>
       </Grid>
     )

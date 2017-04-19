@@ -25,7 +25,7 @@ export default class SideMenu extends Component {
   }
   // TODO manage scrolling (e.g. big masthead)
   isWide () {
-    return w && w.innerWidth > 720
+    return !w ? true : w.innerWidth > 720
   }
   handleResize ({ target: { innerWidth } }) {
     this.setState({ wide: this.isWide() })
@@ -38,16 +38,18 @@ export default class SideMenu extends Component {
   }
   renderMenuItems (showFullMenu) {
     return [
-      <Menu.Item header as={Link} to={prefixLink('/')}>
+      <Menu.Item key={0} header as={Link} to={prefixLink('/')}>
         <Icon name='subway' />
         Kovan Testnet
       </Menu.Item>,
-      <Menu.Menu position='right'>
+      <Menu.Menu key={1} position='right'>
         {showFullMenu ? (
           config.menuItems.map(({ name, icon, link }) => {
             const external = link.indexOf('http') === 0
             return (
-              <Menu.Item as={Link}
+              <Menu.Item
+                key={name}
+                as={Link}
                 to={!external ? prefixLink(`/${link}/`) : undefined}
                 href={external ? link : undefined}
                 target={external ? '_blank' : undefined}
@@ -79,7 +81,7 @@ export default class SideMenu extends Component {
           </Sidebar>
         }
         <Dimmer.Dimmable
-          dimmed={sidebarVisible || undefined}
+          dimmed={sidebarVisible}
           onClick={this.handleCloseIfOpen}
           style={{ minHeight: '100vh' }}
         >

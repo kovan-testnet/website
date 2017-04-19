@@ -1,6 +1,6 @@
 {
   "name": "kovan-web",
-  "description": "Kovan Etheruem Testnet Website",
+  "description": "Kovan Ethereum Testnet Website",
   "version": "0.0.1",
   "author": "Chris Hitchcott <chris@hitchcott.com>",
   "dependencies": {

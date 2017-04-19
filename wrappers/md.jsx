@@ -9,7 +9,7 @@ export default class Mardkdown extends Component {
     return (
       <DocumentTitle title={`${post.title} | ${config.siteTitle}`}>
         <Grid padded>
-          <Grid.Column width={16} inverted color='orange'>
+          <Grid.Column width={16} color='orange'>
             <Container text>
               <Divider hidden />
               <div dangerouslySetInnerHTML={{ __html: post.body }} />

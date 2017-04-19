@@ -2,12 +2,13 @@ import React, { PropTypes, Component } from 'react'
 import DocumentTitle from 'react-document-title'
 
 import { prefixLink } from 'gatsby-helpers'
+import { config } from 'config'
 
 const BUILD_TIME = new Date().getTime()
 
 export default class Html extends Component {
   render () {
-    const title = DocumentTitle.rewind()
+    const title = DocumentTitle.rewind() || config.siteTitle
 
     let css
     if (process.env.NODE_ENV === 'production') {

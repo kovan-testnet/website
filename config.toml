@@ -4,19 +4,3 @@ linkPrefix = "/website"
 name = "Proposal"
 link = "proposal"
 icon = "file text"
-[[menuItems]]
-name = "Connect"
-link = "connect"
-icon = "plug"
-[[menuItems]]
-name = "Faucet"
-link = "faucet"
-icon = "database"
-[[menuItems]]
-name = "Explorer"
-link = "https://kovan.etherscan.io"
-icon = "chain"
-[[menuItems]]
-name = "Netstats"
-link = "https://authorities.kovan.network"
-icon = "bar chart"

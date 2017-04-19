@@ -1,36 +1,13 @@
-<!-- # Kovan - Stable Ethereum Public Testnet
+---
+title: 'Proposal'
+---
 
-Kovan is a new testnet for Ethereum using Parity's Proof of Authority consensus engine, with benefits over [Ropsten](https://blog.ethereum.org/2016/11/20/from-morden-to-ropsten/):
+# Kovan Testnet Proposal
 
-* Immune to spam attacks (as Ether supply is controlled by trusted parties)
-* Consistent 4 second block time
-
-## Resources
-
-Connection Guide:  
-https://github.com/kovan-testnet/config
-
-Faucet Service:  
-https://github.com/kovan-testnet/faucet
-
-Blockchain Explorer:  
-https://kovan.etherscan.io
-
-Netstats:  
-http://kovan-stats.parity.io
-
-Validator Performance:  
-https://kovan.etherscan.io/stat/miner?range=1&blocktype=blocks
-
-Improvement Proposals:  
-https://github.com/kovan-testnet/KIPs/issues
-
-Gitter Chat:  
-https://gitter.im/kovan-testnet -->
-
-# Proposal
+Updated 1/3/17
 
 *Please note this proposal is being continually updated as the project matures*
+
 
 ## Abstract
 
@@ -193,10 +170,10 @@ George Hallam (Head of Business Development) - george@melonport.com
 
 Melonport is the private company building the open-source Melon Protocol. The Melon protocol is a blockchain protocol for digital asset management built on the Ethereum platform. It enables participants to set up, manage and invest in digital asset management strategies in an open, competitive and decentralised manner.
 
-### Nivaura
+<!-- ### Nivaura
 Avtar Sehra - avtar@nivaura.com
 
-Nivaura makes debt financing for companies cheaper and faster, while ensuring full compliance through automated on-demand issuance and administration.
+Nivaura makes debt financing for companies cheaper and faster, while ensuring full compliance through automated on-demand issuance and administration. -->
 
 ### GridSingularity
 Ewald Hesse - ewald@gridsingularity.com
