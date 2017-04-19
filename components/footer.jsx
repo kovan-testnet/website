@@ -8,7 +8,7 @@ export default class Footer extends Component {
         <Grid.Column width={16} color='grey'>
           <Container>
             <Grid>
-              <Grid.Column width={8}>
+              <Grid.Column width={16} textAlign='center'>
                 <Icon name='birthday' />
                 Kovan
                 {' '}
@@ -16,15 +16,10 @@ export default class Footer extends Component {
                   href='http://www.ibtimes.co.uk/parity-pushes-new-ethereum-testnet-kovan-after-spam-attacks-1609901'
                   target='_blank'
                 >
-                  was born
+                  was announced
                 </a>
                 {' '}
                 on 6/3/17
-              </Grid.Column>
-              <Grid.Column width={8} textAlign='right'>
-                <Icon name='github' />
-                <Icon name='twitter' />
-                <Icon name='mail outline' />
               </Grid.Column>
             </Grid>
           </Container>

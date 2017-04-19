@@ -6,14 +6,14 @@
        Fonts
 --------------------*/
 
-@fontName          : 'Roboto Light';
+@fontName          : 'Roboto';
 // @fontSmoothing     : antialiased;
 
-@headerFont        : @fontName, 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@pageFont          : @fontName, 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 // @googleFontName    : @fontName;
-@importGoogleFonts : false;
+// @importGoogleFonts : false;
 // @googleFontSizes   : '400,700,400italic,700italic';
 // @googleSubset      : 'latin';
 
@@ -57,7 +57,7 @@
   Page Heading
 ---------------*/
 
-// @headerFontWeight : bold;
+@headerFontWeight : 300;
 // @headerLineHeight : unit((18 / 14), em);
 
 // @h1 : unit((28 / 14), rem);

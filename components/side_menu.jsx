@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { config } from 'config'
 import { prefixLink } from 'gatsby-helpers'
 
+const minItems = 3
 const w = typeof window === 'undefined' ? undefined : window
 
 export default class SideMenu extends Component {
@@ -69,7 +70,8 @@ export default class SideMenu extends Component {
   }
   render () {
     const { wide, showSidebar } = this.state
-    const sidebarVisible = !wide && showSidebar
+    const sidebarVisible = config.menuItems.length >= minItems && !wide && showSidebar
+    const showMiniMenu = config.menuItems.length >= minItems && wide
     return (
       <div>
         {sidebarVisible &&
@@ -77,7 +79,7 @@ export default class SideMenu extends Component {
             as={Menu} visible inverted vertical icon='labeled'
             style={{ position: 'fixed', zIndex: '104' }}
           >
-            {this.renderMenuItems(true)}
+            {this.renderMenuItems(showMiniMenu)}
           </Sidebar>
         }
         <Dimmer.Dimmable
@@ -93,7 +95,7 @@ export default class SideMenu extends Component {
             direction='top'
             style={{ position: 'fixed' }}
           >
-            {this.renderMenuItems(wide)}
+            {this.renderMenuItems(!sidebarVisible)}
           </Sidebar>
           <div
             style={{ paddingTop: '38px' }}

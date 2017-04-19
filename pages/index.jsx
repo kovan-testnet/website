@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Container } from 'semantic-ui-react'
-
+import { config } from 'config'
 import Masthead from '../components/index/masthead'
 import AdvantagesGrid from '../components/index/advantages'
 import GettingStarted from '../components/index/getting_started'
@@ -13,11 +13,11 @@ import mastheadBg from '../assets/masthead_bg.jpg'
 export default class IndexTemplate extends Component {
   render () {
     return (
-      <Grid padded>
-        <Grid.Column width={16} color='orange' className='masthead' style={{ backgroundImage: `url(${mastheadBg})` }}>
+      <Grid padded className='root-grid'>
+        <Grid.Column width={16} color={config.theme} className='masthead' style={{ backgroundImage: `url(${mastheadBg})` }}>
           <Masthead />
         </Grid.Column>
-        <Grid.Column width={16} color='blue'>
+        <Grid.Column width={16} color={config.theme}>
           <Container>
             <AdvantagesGrid />
           </Container>
@@ -27,7 +27,7 @@ export default class IndexTemplate extends Component {
             <QuickLinks />
           </Container>
         </Grid.Column>
-        <Grid.Column width={16} color='teal'>
+        <Grid.Column width={16} color={config.themeSecondary}>
           <Container>
             <GettingStarted />
           </Container>

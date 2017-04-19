@@ -1,5 +1,7 @@
 siteTitle="Kovan Testnet"
 linkPrefix = "/website"
+theme="orange"
+themeSecondary="blue"
 [[menuItems]]
 name = "Proposal"
 link = "proposal"

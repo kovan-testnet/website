@@ -14,7 +14,7 @@ export default class GettingStarted extends Component {
           <Header.Subheader>Deploy Ethereum Smart Contracts on Kovan Today!</Header.Subheader>
         </Header>
         <Divider hidden />
-        <Grid stackable columns={3}>
+        <Grid divided stackable columns={3}>
           <Connect />
           <Faucet />
           <Develop />
