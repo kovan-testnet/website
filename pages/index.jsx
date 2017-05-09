@@ -10,6 +10,8 @@ import Authorities from '../components/index/authorities'
 
 import mastheadBg from '../assets/masthead_bg.jpg'
 
+import svgBackgrounds from '../assets/svg-backgrounds.js'
+
 export default class IndexTemplate extends Component {
   render () {
     return (
@@ -17,7 +19,7 @@ export default class IndexTemplate extends Component {
         <Grid.Column width={16} color={config.theme} className='masthead' style={{ backgroundImage: `url(${mastheadBg})` }}>
           <Masthead />
         </Grid.Column>
-        <Grid.Column width={16} color={config.theme}>
+        <Grid.Column width={16} color={config.themeSecondary} style={{ backgroundImage: svgBackgrounds[0] }}>
           <Container>
             <AdvantagesGrid />
           </Container>
@@ -27,7 +29,7 @@ export default class IndexTemplate extends Component {
             <QuickLinks />
           </Container>
         </Grid.Column>
-        <Grid.Column width={16} color={config.themeSecondary}>
+        <Grid.Column width={16} color={config.theme} style={{ backgroundImage: svgBackgrounds[1] }}>
           <Container>
             <GettingStarted />
           </Container>

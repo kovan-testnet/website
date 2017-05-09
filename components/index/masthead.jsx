@@ -5,6 +5,7 @@ import { prefixLink } from 'gatsby-helpers'
 
 import { config } from 'config'
 
+import svgBackgrounds from '../../assets/svg-backgrounds.js'
 export default class Masthead extends Component {
   render () {
     return (

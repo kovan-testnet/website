@@ -16,7 +16,7 @@ export default class Connect extends Component {
           Parity is a popular Ethereum client that is easily configurable to connect to Kovan.{' '}
           You can connect to Kovan by starting Parity with the following flags:
         </p>
-        <pre><code>parity --network kovan</code></pre>
+        <pre><code>parity --chain kovan</code></pre>
         <Button.Group>
           <LinkButton
             basic inverted

@@ -24,7 +24,7 @@ export default class Faucet extends Component {
         <Segment>
           <Grid columns={3} doubling verticalAlign='middle' centered>
             <Authority image={attores} name='Attores' link='https://attores.com' />
-            <Authority image={blockchainindustries} name='Blockchain Industries' link='http://blockchain-industries.com/' />
+            <Authority image={blockchainindustries} name='Blockchain Industries' link='https://blockchains.industries/' />
             <Authority image={digix} name='Digix Global' link='https://digix.io' />
             <Authority image={etherscan} name='Etherscan' link='https://etherscan.io' />
             <Authority image={gridsingularity} name='GridSingularity' link='https://gridsingularity.com' />

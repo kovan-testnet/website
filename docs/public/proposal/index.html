@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Proposal | Kovan Testnet</title><link rel="stylesheet" type="text/css" href="/website/styles.css?t=1494336549424"/></head><body><div id="react-mount" style="min-height:100%;"><div data-reactroot="" data-reactid="1" data-react-checksum="423016876"><div style="min-height:100vh;" class="dimmable" data-reactid="2"><div style="z-index:103;opacity:0.5;" class="ui simple dimmer" data-reactid="3"></div><div style="position:fixed;" class="ui small ui top visible sidebar menu" data-reactid="4"><a class="header item" href="/website/" data-reactid="5"><i aria-hidden="true" class="subway icon" data-reactid="6"></i><!-- react-text: 7 -->Kovan Testnet<!-- /react-text --></a><div class="right menu" data-reactid="8"><a href="/website/proposal/" class="item" data-reactid="9"><i aria-hidden="true" class="file text icon" data-reactid="10"></i><!-- react-text: 11 -->Proposal<!-- /react-text --></a></div></div><div style="padding-top:38px;" data-reactid="12"><div class="ui padded grid" data-reactid="13"><div class="sixteen wide column" data-reactid="14"><div class="ui text container" data-reactid="15"><div class="ui hidden divider" data-reactid="16"></div><div data-reactid="17"><h1>Kovan Testnet Proposal</h1>
+<p>Updated 1/3/17</p>
+<p><em>Please note this proposal is being continually updated as the project matures</em></p>
+<h2>Abstract</h2>
+<p>The authors propose the formation of a public Proof-of-Authority (PoA) Ethereum testnet, named “Kovan”. This new testnet will be using Parity (an Ethereum client developed by Parity Technologies, FKA Ethcore) to provide a stable, secure testnet environment for Ethereum developers, due to the instability of the existing Ropsten testnet.</p>
+<p>On 24th Feb 2017, Ropsten was under a denial-of-service attack (“spam attack”). Average block propagation time has since slowed to a crawl as a large miner has decided to deploy several zero-value high-gas transactions to spam the test network continually. The attacker’s intentions are unknown, but the result is that Ethereum developers who rely on Ropsten no longer have a stable public testing environment to deploy and test their smart contract code prior to deploying to production on the mainnet chain.</p>
+<p>The use of Proof-of-Work (PoW) for testnets presents a fundamental game theoretical problem: the only significant economic incentive to mine on testnets using dedicated GPU resources is to launch an attack and reduce stability and the viability of the testnet (and thus hamper development for the mainnet chain).</p>
+<h2>What is Proof-of-Authority?</h2>
+<p>Parity supports a PoA consensus engine to be used with Ethereum Virtual Machine (EVM) based chains. PoA is a replacement for PoW, which can be used for both public and private chain setups. There is no mining involved to secure the network with PoA, and relies on trusted ‘Validators’ to ensure that valid transactions are added to blocks, processed and executed by the EVM faithfully.</p>
+<p>Because mining does not occur on our proposed public test net, malicious actors are prevented from acquiring testnet Ether, solving the spam attack that Ropsten is currently facing.</p>
+<p>There is no difference in the way that contracts are executed compared to PoW chains, so developers can test their contracts and user interfaces before deploying to the mainnet in a more reliable and convenient environment.</p>
+<p>More information about PoA can be found at: <a href="https://github.com/ethcore/parity/wiki/Proof-of-Authority-Chains">https://github.com/ethcore/parity/wiki/Proof-of-Authority-Chains</a></p>
+<h2>Advantages over the existing ropsten public testnet</h2>
+<p>Aside from solving the critical stability issue of the ongoing Ropsten “spam attack”, there are additional benefits for providing a public consortium PoA network.</p>
+<ul>
+<li>Shorter block times, allowing for more rapid deployment, testing and iteration</li>
+<li>Reduced overall maintenance costs (no cpu-intensive mining is required)</li>
+</ul>
+<h2>Specification</h2>
+<p>A select group of trusted parties (“Consortium”) will be responsible for maintaining a cluster of Ethereum nodes running PoA to verify blocks.</p>
+<h3>Decentralization</h3>
+<p>To ensure a sufficient degree of trust and redundancy, a minimum number of Consortium members should be recognised as being trusted members of the Ethereum/Blockchain community. Servers should not be controlled by a single entity, but run individually by the  consortium’s companies, preferably with servers located in multiple regions.</p>
+<h3>Governance</h3>
+<p>Formal process to be confirmed. Currently using gitter for decision making. The Parity codebase (and thus Kovan) is ultimately controlled by Parity Technologies.</p>
+<h3>Blockchain Configuration</h3>
+<ul>
+<li>4 second block time</li>
+<li>Parity <a href="https://github.com/ethcore/parity/wiki/Consensus-Engines#authority-round">AuthorityRound PoA consensus mechanism</a></li>
+<li>Use <code>--force-sealing</code></li>
+<li>Homestead rules with possible Metropolis &amp; beyond additions;</li>
+</ul>
+<h3>Faucet Service</h3>
+<p>A secure “Faucet” service will be provided to allow for verified (non-malicious) developers to acquire testnet Ether. It is important that the distribution of testnet Ether is available but is also rate-limited, so as to be not available in large amounts to non-trusted parties (to prevent spam attacks).</p>
+<p>The faucet will have a web-based interface, and will require some level of verification (to be determined), but could include:</p>
+<ul>
+<li>Github User Verification (OAuth)</li>
+<li>SMS Verification (already developed by Parity)</li>
+<li>Manual KYC from consortium members</li>
+</ul>
+<p>It is to be determined whether or not the faucet service will require manual approval from the consortium validators, with one or more validators approving requests for testnet Ether. This could be achieved using an admin backend for approving requests optionally, with an on-chain multi-sig wallet to prevent an individual validator from ‘going rogue’.</p>
+<p>Another approach could leverage the economic properties of the Ethereum mainnet, by automatically granting testnet Ether to users who send mainnet Ether into a specific contract (which could in turn be used to fund maintenance of the Kovan testnet). This approach would grant privacy benefits to developers, whilst still creating an economic barrier to entry that prevents large amounts of testnet Ether from being accrued.</p>
+<h3>Blockchain Explorer</h3>
+<p>An important requirement for testnet developers is to be able to easily verify that transactions have been processed using a third party interface. The most popular blockchain explorer for Ethereum is Etherscan, which currently provides an explorer interface for both the Ethereum mainnet and Ropsten testnet. Etherscan will also provide this service and also a set of API endpoints for the Kovan testnet.</p>
+<h3>JSON-RPC Endpoints</h3>
+<p>Any developer, including non-consortium-members, can interact with the blockchain by running a local Parity node using a specific configuration.</p>
+<p>Additionally, a number of public JSON-RPC endpoints will be provided for deploying Smart Contracts and interacting with the network, where developers can use “zero-wallets” for signing transactions, providing further convenience for any given dev environment - this removes the requirement of running a local node, and is useful for mobile and web-based applications.</p>
+<p>Ideally, a scalable load-balanced service (such as Infura) should be used to ensure uptime and reliability.</p>
+<h3>Deployment</h3>
+<p>It is critical that validators have correctly-configured PoA validation nodes running in reliable and redundant way.
+Various deployment options will be provided to validators:</p>
+<ul>
+<li>Docker Images (TBC)</li>
+<li>Manual Configuration/Setup Documentation</li>
+</ul>
+<h2>Consortium Members and Roles</h2>
+<ul>
+<li>Etherscan (Block Explorer Provider / PoA Validator)</li>
+<li>Parity Technologies (PoA Validator / Parity Client Developer)</li>
+<li>DigixGlobal (PoA Validator)</li>
+<li>Attores (PoA Validator)</li>
+<li>Maker / Dapphub (PoA Validator)</li>
+<li>OneBit / TenX (PoA Validator)</li>
+<li>Aurel Iancu, Prominent Miner / Contributor, Ethereum Advocate (PoA Validator)</li>
+<li>Melonport (PoA Validator)</li>
+<li>GridSingularity (PoA Validator)</li>
+<li>Nivaura (PoA Validator)</li>
+</ul>
+<p>Additional consortium members could be added to provide increased trust and provide development resources for the Faucet service.</p>
+<p>The listed PoA Validator entities will be (at least) responsible for maintaining validation nodes, and ideally with redundancy on other services to prevent critical failure if is in some way compromised. There will also be to-be-determined development responsibilities from these parties with regards to providing JSON RPC nodes and the Faucet service.</p>
+<h2>Validator Addresses</h2>
+<ul>
+<li>Etherscan: 0x00D6Cc1BA9cf89BD2e58009741f4F7325BAdc0ED</li>
+<li>Parity: 0x0010f94b296a852aaac52ea6c5ac72e03afd032d</li>
+<li>DigixGlobal: 0x007733a1FE69CF3f2CF989F81C7b4cAc1693387A</li>
+<li>Attores: 0x00427feae2419c15b89d1c21af10d1b6650a4d3d</li>
+<li>Maker: 0x00E6d2b931F55a3f1701c7389d592a7778897879</li>
+<li>TenX (OneBit): 0x4Ed9B08e6354C70fE6F8CB0411b0d3246b424d6c</li>
+<li>Aurel: 0x00e4a10650e5a6D6001C38ff8E64F97016a1645c</li>
+<li>Melonport: 0x0020ee4Be0e2027d76603cB751eE069519bA81A1</li>
+<li>GridSingularity: 0x00a0a24b9f0e5ec7aa4c7389b8302fd0123194de</li>
+<li>Nivaura: [will join in first HF]</li>
+</ul>
+<h2>Consortium Company Profiles:</h2>
+<p>The consortium will be made up of prominent companies / development studios / community members in this space.</p>
+<h3>Parity Technologies</h3>
+<p>Gavin Wood (Founder, CTO) - <a href="mailto:gavin@parity.io">gavin@parity.io</a><br>
+Jutta Steiner (Co-founder, COO) <a href="mailto:jutta@parity.io">jutta@parity.io</a><br>
+Peter Czaban (Lead, Parity Enterprise Suite) <a href="mailto:peter@parity.io">peter@parity.io</a><br>
+Björn Wagner (Head of Business Development) <a href="mailto:bjorn@parity.io">bjorn@parity.io</a></p>
+<p>Parity Technologies (FKA Ethcore) is the most advanced blockchain core technology provider. Our flagship product, Parity Ethereum, powers much of the Ethereum network, protecting more than $3bn of Turing complete value and acutely demonstrated itself the most robust, performant Ethereum client software through single-handedly defending the network when attacked. Through its set of products, Parity provides the necessary technology to enterprises and individuals alike in the pursuit of trust-freedom.</p>
+<h3>Etherscan</h3>
+<p>Matthew Tan (Founder, CEO) - <a href="mailto:matt@etherscan.io">matt@etherscan.io</a></p>
+<p>EtherScan is the leading Block Explorer, Search, API and Analytics Platform for Ethereum.</p>
+<h3>DigixGlobal</h3>
+<p>Kai Cheng, Chng (CEO) - <a href="mailto:kcchng@dgx.io">kcchng@dgx.io</a><br>
+Chris Hitchcott (Core Dev) - <a href="mailto:chris@dgx.io">chris@dgx.io</a></p>
+<p>Digix provides a use case for the tokenisation and documentation of physical assets through its Proof of Asset (PoA) protocol. The PoA protocol utilises Ethereum and the InterPlanetary Files System (IPFS) to track an asset through its chain of custody. This allows for the open and public verification of an asset’s existence without a centralised database. Digix also offers an API allowing other applications to be built on top of our asset tokenisation service.</p>
+<h3>Attores</h3>
+<p>David Moskowitz (CEO) - <a href="mailto:david@attores.com">david@attores.com</a><br>
+Gaurang Torvekar (CTO) - <a href="mailto:gaurang@attores.com">gaurang@attores.com</a></p>
+<p>Attores enables data and documents to be stored and shared securely utilizing Ethereum’s smart contracts and blockchain technology. The Attores Open Certificates platform (<a href="http://opencertificates.co">opencertificates.co</a>) allows for the issuing of certificates on the Ethereum blockchain for trustless verification and real time auditability of the status of the certificates. Use cases include diplomas, licenses, ISO certificates and memberships in associations and societies.</p>
+<h3>Maker / Dapphub</h3>
+<p>Rune - <a href="mailto:Rune.Kek@gmail.com">Rune.Kek@gmail.com</a></p>
+<p>Maker is a stablecoin platform on Ethereum that backs the dai stablecoin using a diversified portfolio of Ethereum based assets as collateral to guarantee price stability. Dai has minimal volatility against the SDR currency basket maintained by the IMF, and the holders of a special asset called MKR act as a decentralized governance body that utilizes wisdom of the crowd to manage the mbtary policy and risk of the system. Dapphub is the leading development company in the Maker community, and have created several cutting edge software tools to aid in the development of the Maker platform, including Dapple and Dappsys.</p>
+<h3>TenX</h3>
+<p>Toby Hoenisch (CEO) - toby@tenx.tech<br>
+Paul Kittiwongsunthorn (COO) - paul@tenx.tech</p>
+<p>TenX - developer of open-source COMIT cross-blockchain interoperability protocol for instant transfer of assets across public and private blockchains. Building a decentralized banking platform where anyone can build global financial products effectively. Financial products launched on the network integrate seamlessly with other on-network products, creating an inclusive ecosystem. The first use case on COMIT is TenX - Their OneBit wallet allows you to spend blockchain assets/tokens in the real world via mobile payment, debit card and more. TenX’ mission is to “make global payments as easy and fast as sending a text message”.</p>
+<h3>Blockchain Industries</h3>
+<p>Iancu Aurel  (Blockchain Consultant) - <a href="mailto:aurel@ethereum.ro">aurel@ethereum.ro</a></p>
+<p>Aurel Iancu is a consultant for an European Blockchain Consultancy firm based in Bucharest, Romania. Being one of the early adopters and advocates for Ethereum, in 2015, he has successfully lead the operations for building and launching a 1500+ GPU mining facility, a project which is nowadays expanding on an ongoing basis.</p>
+<h3>Melonport</h3>
+<p>Reto Trinkler (Founder / Chairman) - <a href="mailto:rt@melonport.com">rt@melonport.com</a><br>
+Mona El Isa (CEO) - <a href="mailto:me@melonport.com">me@melonport.com</a>	<br>
+George Hallam (Head of Business Development) - <a href="mailto:george@melonport.com">george@melonport.com</a></p>
+<p>Melonport is the private company building the open-source Melon Protocol. The Melon protocol is a blockchain protocol for digital asset management built on the Ethereum platform. It enables participants to set up, manage and invest in digital asset management strategies in an open, competitive and decentralised manner.</p>
+<!-- ### Nivaura
+Avtar Sehra - avtar@nivaura.com
+
+Nivaura makes debt financing for companies cheaper and faster, while ensuring full compliance through automated on-demand issuance and administration. -->
+<h3>GridSingularity</h3>
+<p>Ewald Hesse - <a href="mailto:ewald@gridsingularity.com">ewald@gridsingularity.com</a></p>
+<p>GridSingularity is a team of energy and blockchain professionals building a decentralised energy data exchange platform which aims to revolutionise the energy generation and distribution industry.</p>
+</div><div class="ui hidden divider" data-reactid="18"></div></div></div></div><div style="margin-top:0px;" class="ui grid" data-reactid="19"><div class="grey sixteen wide column" data-reactid="20"><div class="ui container" data-reactid="21"><div class="ui grid" data-reactid="22"><div class="center aligned sixteen wide column" data-reactid="23"><i aria-hidden="true" class="birthday icon" data-reactid="24"></i><!-- react-text: 25 -->Kovan<!-- /react-text --><!-- react-text: 26 --> <!-- /react-text --><a href="http://www.ibtimes.co.uk/parity-pushes-new-ethereum-testnet-kovan-after-spam-attacks-1609901" target="_blank" data-reactid="27">was announced</a><!-- react-text: 28 --> <!-- /react-text --><!-- react-text: 29 -->on 6/3/17<!-- /react-text --></div></div></div></div></div></div></div></div></div><script src="/website/bundle.js?t=1494336549424"></script></body></html>
