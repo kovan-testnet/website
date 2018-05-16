@@ -19,7 +19,7 @@ export default class Masthead extends Component {
                 <Header.Subheader content='The Fast and Reliable Ethereum Test Chain' />
               </Header.Content>
             </Header>
-            <p>Kovan is a Proof of Authority (PoA) publicly accessible blockchain for Ethereum; created and maintained by a consortium of Ethereum developers, to aide the Ethereum developer community.</p>
+            <p>Kovan is a Proof of Authority (PoA) publicly accessible blockchain for Ethereum; created and maintained by a consortium of Ethereum developers, to aid the Ethereum developer community.</p>
           </Container>
         </div>
         <Button as={Link} content='Read the Proposal' inverted to={prefixLink('/proposal/')} />
