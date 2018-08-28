@@ -14,7 +14,7 @@ export default class Netstats extends Component {
           basic
           icon='bar chart'
           content='Open Netstats'
-          to='https://authorities.kovan.network'
+          to='https://kovan-stats.parity.io'
         />
         <br /><br />
         <p>View comprehensive realtime statistics about the state of the Kovan testnet on the authorities netstats page.</p>
