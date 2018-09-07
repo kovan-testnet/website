@@ -26,7 +26,7 @@ export default class Advantages extends Component {
             inverted
           />
           <IconColumn
-            header='Realiability'
+            header='Reliability'
             subHeader='Consortium membership enforced by smart contract logic'
             icon='users'
             inverted
