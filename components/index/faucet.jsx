@@ -14,7 +14,7 @@ export default class Faucet extends Component {
         <p>"Faucets" allow you to acquire Kovan Ether without the need for mining.</p>
         <Header as='h4' content='Icarus Faucet' inverted />
         <p>ParityTech has provided an automated SMS-verification Faucet service that allows you get a daily allowance of KETH.</p>
-        <LinkButton to='faucet' content='Sign up for Icarus' basic inverted />
+        <LinkButton to='https://github.com/kovan-testnet/faucet' content='Sign up for Icarus' basic inverted />
         <Header as='h4' content='Gitter Chat' inverted />
         <p>
           You can also request KETH in the 'faucet' Gitter channel.{' '}
