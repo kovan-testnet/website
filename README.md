@@ -1,4 +1,4 @@
-# Kovan Web
+# Kovan Web An awesome Project
 
 Work in progress
 
